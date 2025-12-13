@@ -4,11 +4,12 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
+  ParseUUIDPipe,
   Patch,
   Post,
 } from '@nestjs/common';
 import { CarsService } from './cars.service';
+import type Car from './interfaces/car.interface';
 
 @Controller('cars')
 export class CarsController {
@@ -20,7 +21,7 @@ export class CarsController {
   }
 
   @Get(':id')
-  getCarById(@Param('id', ParseIntPipe) id: number) {
+  getCarById(@Param('id', ParseUUIDPipe) id: string) {
     // throw new Error('Method not implemented.');
     return this.carsService.findOneById(id);
     // this.carsService.findOneById(parseInt(id)) || { message: 'Car not found' }
@@ -28,17 +29,17 @@ export class CarsController {
   }
 
   @Post()
-  createCar(@Body() body: any) {
+  createCar(@Body() body: Car) {
     return body;
   }
 
   @Patch(':id')
-  updateCar(@Body() body: any) {
+  updateCar(@Body() body: Car) {
     return body;
   }
 
   @Delete(':id')
-  deleteCar(@Param('id', ParseIntPipe) id: number) {
+  deleteCar(@Param('id', ParseUUIDPipe) id: number) {
     return {
       message: `Car with id ${id} deleted`,
     };
