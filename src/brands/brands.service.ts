@@ -7,7 +7,7 @@ import { Brand } from './entities/brand.entity';
 @Injectable()
 export class BrandsService {
   private brands: Brand[] = [
-    { id: uuidv4(), name: 'Toyota', createdAt: new Date().getTime() },
+    // { id: uuidv4(), name: 'Toyota', createdAt: new Date().getTime() },
   ];
 
   create(createBrandDto: CreateBrandDto) {
@@ -50,5 +50,9 @@ export class BrandsService {
     return {
       message: `Brand with id ${id} deleted`,
     };
+  }
+
+  fillBrandsWithSeedData(brands: Brand[]) {
+    this.brands = brands;
   }
 }

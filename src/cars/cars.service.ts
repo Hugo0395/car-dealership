@@ -6,24 +6,24 @@ import { CreateCarDto, UpdateCarDto } from './dto';
 @Injectable()
 export class CarsService {
   private cars: Car[] = [
-    {
-      id: uuidv4(),
-      brand: 'toyota',
-      model: 'camry',
-      year: 2020,
-    },
-    {
-      id: uuidv4(),
-      brand: 'ford',
-      model: 'mustang',
-      year: 2019,
-    },
-    {
-      id: uuidv4(),
-      brand: 'bmw',
-      model: 'x5',
-      year: 2021,
-    },
+    // {
+    //   id: uuidv4(),
+    //   brand: 'toyota',
+    //   model: 'camry',
+    //   year: 2020,
+    // },
+    // {
+    //   id: uuidv4(),
+    //   brand: 'ford',
+    //   model: 'mustang',
+    //   year: 2019,
+    // },
+    // {
+    //   id: uuidv4(),
+    //   brand: 'bmw',
+    //   model: 'x5',
+    //   year: 2021,
+    // },
   ];
 
   findAll() {
@@ -94,5 +94,9 @@ export class CarsService {
     return {
       message: `Car with id ${id} deleted`,
     };
+  }
+
+  fillCarsWithSeedData(cars: Car[]) {
+    this.cars = cars;
   }
 }
